@@ -1,3 +1,63 @@
-{% for job in object_list %}
-    {{ job.name }}
-{% endfor %}
+{% extends 'poster_base.html' %}
+
+{% load static %}
+
+{% block dash_title %}
+{% endblock dash_title %}
+
+{% block content %}
+<section class="inner-page"> 
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Gig Listings</h5>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price (Tsh)</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for job in object_list %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{ job.name }}</td>
+                            <td>{{ job.description }}</td>
+                            <td>{{ job.location }}</td>
+                            <td>{{ job.date }}</td>
+                            <td>{{ job.price }}</td>
+                            <td>
+                                {% if job.status == "open" %}
+                                        <span class="badge text-bg-primary rounded-pill px-3 py-2">{{ job.status|capfirst }}</span>
+                                    {% elif  job.status == "inprogress" %}
+                                        <span class="badge text-bg-secondary rounded-pill px-3 py-2">{{ job.status|capfirst }}</span>
+                                    {% elif  job.status == "reviewing" %}
+                                        <span class="badge text-bg-info rounded-pill px-3 py-2">{{  job.status|capfirst }}</span>
+                                    {% elif  job.status == "dispute" %}
+                                        <span class="badge text-bg-danger rounded-pill px-3 py-2">{{  job.status|capfirst }}</span>
+                                    {% elif  job.status == "completed" %}
+                                        <span class="badge text-bg-success rounded-pill px-3 py-2">{{  job.status|capfirst }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'GigGo_App:poster_updatejob' pk=job.pk %}" type="button" class="btn btn-sm btn-success">Update</a>
+                                <a href="{% url 'GigGo_App:poster_deletejob' pk=job.pk %}" type="button" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+        </div>
+    </div>
+</section>
+{% endblock content %}

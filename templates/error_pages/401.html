@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="alert alert-danger text-center mt-5" role="alert">
+          <h1>401 Unauthorized</h1>
+          <p>You are not authorized to access this page.</p>
+        </div>
+        <div class="text-center mt-4">
+          <a class="btn btn-primary" href="{% url 'GigGo_App:index' %}" role="button">Go to Homepage</a>
+          <a class="btn btn-secondary" href="{% url 'GigGo_App:signup' %}" role="button">SignUp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock main %}

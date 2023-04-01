@@ -1,5 +1,24 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
-</form>
+{% extends 'poster_base.html' %}
+
+{% load static %}
+
+{% block dash_title %}
+    <div class="pagetitle">
+        <h1>Update a Gig</h1>
+    </div><!-- End Page Title -->
+{% endblock dash_title %}
+
+{% block content %}
+<section class="inner-page"> 
+    <div class="card">
+            <div class="card-body py-3">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Update" class="btn btn-warning" style="background-color: #009970; border-color: #009970; animation: pulse 1s infinite;">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

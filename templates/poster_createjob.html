@@ -1,11 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'poster_base.html' %}
 
 {% load static %}
 
-{% block main %}
-<main id="main">
-    <div class="container">
-    {{form.as_p}}
+{% block dash_title %}
+    <div class="pagetitle">
+        <h1>Post a Gig</h1>
+    </div><!-- End Page Title -->
+{% endblock dash_title %}
+
+{% block content %}
+<section class="inner-page"> 
+    <div class="card">
+            <div class="card-body py-3">
+                {{form.as_p}}
+            </div>
+             <div class="form-row my-4 justify-content-center">
+                <button type="submit" class="btn btn-success btn-lg"
+                    style="background-color: #009970; border-color: #009970; animation: pulse 1s infinite;">Post</button>
+            </div>
+        </div>
     </div>
-</main>
-{% endblock main %}
+</section>
+{% endblock content %}

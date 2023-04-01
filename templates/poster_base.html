@@ -67,7 +67,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="{% url 'GigGo_App:profilesetting' %}">
+                            <a class="dropdown-item d-flex align-items-center" href="">
                                 <i class="bi bi-person"></i>
                                 <span>My Profile</span>
                             </a>
@@ -83,7 +83,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="{% url 'feed:logout' %}">
+                            <a class="dropdown-item d-flex align-items-center" href="{% url 'GigGo_App:logout' %}">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -103,50 +103,34 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="{% url 'GigGo_App:dashboard' %}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="{% url 'GigGo_App:poster_createjob' %}">
                     <i class="bi bi-plus-square"></i>
-                    <span>Post Job</span>
+                    <span>Post Gig</span>
                 </a>
             </li>
             <!-- End Create Gigs Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="">
-                    <i class="bi bi-send"></i>
-                    <span>Job List</span>
+                <a class="nav-link collapsed" href="{% url 'GigGo_App:poster_joblist' %}">
+                    <i class="bi bi-card-checklist"></i>
+                    <span>Gig List</span>
                 </a>
             </li>
             <!-- End Complaints Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{% url 'userprofile:gigsdash' %}">
-                    <i class="bi bi-pencil"></i>
-                    <span>Update Gigs</span>
-                </a>
-            </li>
-            <!-- End Update Gigs Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{% url 'userprofile:dashboard' %}">
-                    <i class="bi bi-trash3"></i>
-                    <span>Delete Gigs</span>
-                </a>
-            </li>
-            <!-- End Delete Gigs Nav -->
 
             <li class="nav-heading">
                 <hr>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{% url 'GigGo_App:profilesetting' %}">
+                <a class="nav-link collapsed" href="">
                     <i class="bi bi-person"></i>
                     <span>Profile</span>
                 </a>
@@ -190,9 +174,9 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer fixed-bottom">
         <div class="copyright">
-            &copy; Copyright <strong><span>GigGo</span></strong>. All Rights Reserved
+            &copy;  <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>GigGo</span></strong>. All Rights Reserved
         </div>
 
     </footer><!-- End Footer -->

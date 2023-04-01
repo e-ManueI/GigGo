@@ -49,26 +49,36 @@ class SignUpView(CreateView):
 #################################################################################
 # Job Poster Views
 #################################################################################
-class JobListView(PosterRequiredMixin, ListView):
+class UserDashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'poster_dash.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            return super().dispatch(request, *args, **kwargs)
+        except PermissionDenied:
+            return render(request, 'error_pages/401.html', status=404)
+        except Exception as e:
+            if str(e) == "You do not have permission to view this page":
+                return render(request, 'error_pages/403.html', status=403)
+            raise e
+# add poster required mixing to the below
+class CreateJobView(CreateView):
+    template_name = "poster_createjob.html"
+    form_class = CreateJobForm
+        
+class JobListView(ListView):
     template_name = "poster_joblist.html"
     model = Job
 
-
-class CreateJobView(PosterRequiredMixin, CreateView):
-    template_name = "poster_createjob.html"
-    form_class = CreateJobForm
-
-
-class DeleteJobView(PosterRequiredMixin, DeleteView):
-    template_name = "poster_deletejob.html"
-    model = Job
-    success_url = reverse_lazy("GigGo_App:index")
-
-
-class UpdateJobView(PosterRequiredMixin, UpdateView):
+class UpdateJobView(UpdateView):
     template_name = "poster_updatejob.html"
     model = Job
     fields = "__all__"
+    success_url = reverse_lazy("GigGo_App:index")
+    
+class DeleteJobView(DeleteView):
+    template_name = "poster_deletejob.html"
+    model = Job
     success_url = reverse_lazy("GigGo_App:index")
 
 
