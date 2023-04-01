@@ -54,13 +54,6 @@
   margin-bottom: 15px;
   color: inherit;
 }
-.gigs-contacts-btn:hover span {
-  display: none;
-}
-
-.gigs-contacts-btn:hover:before {
-  content: "+{{gig.name}}"
-}
 
 @media (max-width:991px) {
   .projects-horizontal .item .name {

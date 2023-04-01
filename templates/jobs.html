@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'assets/css/projects-horizontal.css' %}" rel="stylesheet">
+{% endblock stylesheet %}
+
+{% block main %}
+<main id="main">
+
+    <section class="inner-page">
+        <div class="container">
+            <section class="projects-horizontal">
+                <div class="container">
+                    <!-- Start: Intro -->
+                    <div class="intro"></div><!-- End: Intro -->
+                    <!-- Start: Projects -->
+                    {% for job in results %}
+                    <div class="row projects">
+                        <div class="col-sm-8 item" data-aos="fade-down" data-aos-delay="100">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-5">
+                                    <a href="#"><img class="img-fluid" src="{% static '/assets/img/interior1.jpg' %}"></a>
+                                </div>
+                                <div class="col">
+                                    <h3 class="name">{{ job.name }}</h3>
+                                    <div id="star" class="stars"
+                                        style="background: transparent;height: inherit;margin-top: -12px; color: red;">
+                                        <i class="fa fa-star" style="padding-left: 0px;"></i>
+                                        <i class="fa fa-star" style="padding-left: 2px;"></i>
+                                        <i class="fa fa-star" style="padding-left: 1px;"></i>
+                                        <i class="fa fa-star" style="padding-left: 1px;"></i>
+                                        <small
+                                            style="margin-right: 0px;padding: 0px;padding-right: 0px;padding-left: 5px;font-weight: bold;">123</small>
+                                    </div>
+                                    <div class="description">
+                                        <p>{{ job.description|truncatechars:100 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 offset-lg-0 item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Tsh. {{ job.price }}&nbsp;</h4>
+                                    <h6 class="text-muted card-subtitle mb-2"
+                                        style="font-size: 18px;color: #0ebc0e;">Free Consultation</h6>
+                                    <div style="height: auto;background: transparent;text-align: center;">
+                                        <button id="" class="btn btn-success rounded-2"
+                                            type="button"
+                                            style="text-align: center;width: 90%;padding-top: 3px;padding-bottom: 3px;margin-top: 16px;margin-bottom: 4px;border-radius: 0px;margin-right: 39px;"><span>Apply</span></button>
+                                        <a class="btn btn-secondary rounded-2" role="button"
+                                            style="text-align: center;width: 90%;padding-top: 3px;padding-bottom: 3px;margin-top: 16px;margin-bottom: 4px;border-radius: 0px;margin-right: 39px;"
+                                            href="{{ job.get_absolute_url }}">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- End: Projects -->
+                </div>
+
+                
+                <!-- PAGINATION -->
+                <div class="pagination text-center mt-4 mx-auto d-flex justify-content-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination mx-auto">
+                            {% if results.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ results.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                
+                            {% for page in results.paginator.page_range %}
+                                {% if page == results.number %}
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">{{ page }}</a>
+                                </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page }}&q={{ results }}">{{ page }}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                
+                            {% if results.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ results.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>                
+            </section><!-- End: Projects Horizontal -->
+        </div>
+
+    </section>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="section-title">
+                        <h2>Contact</h2>
+                    </div>
+                </div>
+
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6294310367985!2d39.28578761428516!3d-6.814846568549566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e4816b04b%3A0x41097d819dc4a5d9!2sAzikiwe%20St%2C%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1672872846716!5m2!1sen!2stz"
+                        width="100%" style="border:0; height:270px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
+                    <div class="info mt-4">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>A108 Azikiwe Street, Dar Es Salaam, Dlg, Tanzania</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mt-4">
+                            <div class="info">
+                                <i class="bi bi-envelope"></i>
+                                <h4>Email:</h4>
+                                <p>info@fex.com</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="info w-100 mt-4">
+                                <i class="bi bi-phone"></i>
+                                <h4>Call:</h4>
+                                <p>+255 738 999 000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock main %}
+
+{% block contacts %}
+{% endblock contacts %}
