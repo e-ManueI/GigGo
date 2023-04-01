@@ -51,7 +51,6 @@ class Job(models.Model):
     ]
     STATUS = [
         ('open', 'Open'),
-        ('acquired', 'Acquired'),
         ('inprogress', 'In Progress'),
         ('Reviewing', 'Reviewing'),
         ('complete', 'Complete'),
@@ -70,11 +69,11 @@ class Job(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("feed:gigdetail", kwargs={"slug": self.slug})
+    # def get_absolute_url(self):
+    #     return reverse("feed:gigdetail", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['user']
-        verbose_name = "Gig"
-        verbose_name_plural = "Gigs"
+        verbose_name = "Job"
+        verbose_name_plural = "Jobs"
         index_together = (('id', 'slug'),)

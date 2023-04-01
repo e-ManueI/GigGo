@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from GigGo_App.models import NewUser
+from GigGo_App.models import NewUser, Job
 
 class UserSignUpForm(UserCreationForm):
     class Meta:
@@ -13,3 +13,8 @@ class UserSignUpForm(UserCreationForm):
             'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Retype-Password'}),
 
         }
+
+class CreateJobForm(forms.ModelForm):
+    class Meta:
+        model = Job
+        fields = "__all__"
