@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 
 # Create your models here.
+
+
 class NewUser(AbstractUser):
     is_finder = models.BooleanField(default=False)
     is_poster = models.BooleanField(default=False)
@@ -20,10 +22,10 @@ class NewUser(AbstractUser):
     weburl = models.URLField(max_length=40, null=True, blank=True)
     address = models.CharField(max_length=40, null=True)
     status = models.BooleanField(null=True)
-    
+
     def __str__(self):
         return self.username
-    
+
 
 class Category(models.Model):
     CATEGORIES = [
@@ -43,6 +45,7 @@ class Category(models.Model):
         ordering = ('name',)
         verbose_name = "Category"
         verbose_name_plural = "Categories"
+
 
 class Job(models.Model):
     LOCATION = [
