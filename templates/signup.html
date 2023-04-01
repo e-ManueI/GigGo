@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static '/assets/css/Registration-Form-with-Photo.css' %}">
+{% endblock stylesheet %}
+
+{% block main %}
+    <main id="main">
+    
+        <section class="inner-page">
+            <div class="container">
+                <!-- Start: Registration Form with Photo -->
+                <section class="register-photo">
+                    <!-- Start: Form Container -->
+                    <div class="form-container">
+                        <!-- Start: Image -->
+                        <div class="d-table-row d-print-table-cell d-sm-table-row d-md-table-cell d-lg-table-cell d-xl-table-cell d-xxl-table-cell image-holder"
+                            style="background: #009970;height: 320px;">
+                            <div class="card">
+                                <div class="card-body" style="margin-top: 0px;">
+                                    <h2 class="card-title"
+                                        style="text-align: center;color: white;font-family: 'Archivo Black', sans-serif;height: 36.1px;font-size: 34.3px;font-weight: bold;">
+                                        Welcome Back!</h2>
+                                    <p class="card-text" style="color: white; font-size: small;">To keep connected with
+                                        us please login with your personal info.</p>
+                                    <a class="btn btn-primary" href="{% url 'GigGo_App:login' %}" type="button">
+                                        SIGN IN
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- End: Image -->
+                        
+                        <!-- Display error messages for the form below -->
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Oops!</strong> There were some errors with your submission:
+                                <ul>
+                                    {% for error in form.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            
+                            <h2 class="text-center"><strong>Create</strong>&nbsp;Account.</h2>
+                            <!-- Start: Social Icons -->
+                            <!-- <div class="social-icons" style="height: 70px;padding-top: 0px;padding-bottom: 0px;">
+                                    <a href="#"><i class="icon ion-social-facebook" style="font-size: 23px;border-style: none;width: 50px;background: var(--bs-white);"></i></a>
+                                    <a href="#"><i class="icon ion-social-googleplus" style="font-size: 23px;border-style: none;width: 50px;"></i></a>
+                                    <a href="#"><i class="icon ion-social-linkedin" style="font-size: 23px;width: 50px;border-style: none;"></i></a>
+                                    <a href="#"></a>
+                                </div>End: Social Icons -->
+    
+                            <div id="" class="d-flex align-items-center align-items-lg-center mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                    fill="none" class="align-items-lg-center"
+                                    style="padding-bottom: 0px;height: 15px;margin-top: 0px;margin-right: 10px;">
+                                    <path
+                                        d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                {{ form.username }}
+                            </div>
+    
+                            <div class="d-flex d-lg-flex align-items-center align-items-lg-center mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                    fill="none" style="margin-top: 0px; margin-right: 10px;">
+                                    <path
+                                        d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                {{ form.email }}
+                            </div>
+    
+                            <div class="d-flex d-lg-flex align-items-center align-items-lg-center mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                    fill="none" style="margin-top: 0px; margin-right: 10px;">
+                                    <path
+                                        d="M12 15V17M6 21H18C19.1046 21 20 20.1046 20 19V13C20 11.8954 19.1046 11 18 11H6C4.89543 11 4 11.8954 4 13V19C4 20.1046 4.89543 21 6 21ZM16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11H16Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                <input type="password" name="password1" class="form-control rounded-pill" style="width: 100%;" placeholder="Password">
+                            </div>
+    
+                            <div class="d-flex d-lg-flex align-items-center align-items-lg-center mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                    fill="none" style="margin-top: 0px; margin-right: 10px;">
+                                    <path
+                                        d="M12 15V17M6 21H18C19.1046 21 20 20.1046 20 19V13C20 11.8954 19.1046 11 18 11H6C4.89543 11 4 11.8954 4 13V19C4 20.1046 4.89543 21 6 21ZM16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11H16Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                <input type="password" name="password2" class="form-control rounded-pill" style="width: 100%;" placeholder="Retype Password">
+                            </div>
+    
+                            <div class="mb-3"></div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary text-uppercase d-block w-100"
+                                    style="background-color: #009970;" type="submit">Sign up</button>
+                            </div>
+    
+                        </form>
+                    </div><!-- End: Form Container -->
+                </section><!-- End: Registration Form with Photo -->
+            </div>
+        </section>
+    
+    </main><!-- End #main -->
+{% endblock main %}
+

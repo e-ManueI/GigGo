@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>GigGo Platform</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon/favicon-32x32.png' %}" rel="icon">
+    <link href="{% static 'assets/img/favicon/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    {% block stylesheet %}
+    {% endblock stylesheet %}
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-top">
+        <div class="container">
+            <div class="header-container d-flex align-items-top justify-content-between">
+                <div class="logo">
+                    <h1 class="text-light"><a href="{% url 'GigGo_App:index' %}"><span>GigGo</span></a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="{% url 'GigGo_App:index' %}">Home</a></li>
+                        <!-- <li><a class="nav-link scrollto" href="#about">Categories</a></li> -->
+                        <li><a class="nav-link scrollto" href="{% url 'GigGo_App:index' %}#why-us">About Us</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                        <li><a class="getstarted scrollto" href="{% url 'GigGo_App:signup' %}">Get Started</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div><!-- End Header Container -->
+        </div>
+    </header><!-- End Header -->
+
+    {% block hero %}
+    {% endblock hero %}
+
+    {% block main %}
+    {% endblock main %}
+
+    {% block contacts %}
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4" data-aos="fade-right">
+                        <div class="section-title">
+                            <h2>Contact</h2>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6294310367985!2d39.28578761428516!3d-6.814846568549566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e4816b04b%3A0x41097d819dc4a5d9!2sAzikiwe%20St%2C%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1672872846716!5m2!1sen!2stz"
+                            width="100%" style="border:0; height:270px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
+                        <div class="info mt-4">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>A108 Azikiwe Street, Dar Es Salaam, Dsm, Tanzania</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mt-4">
+                                <div class="info">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p>info@giggo.com</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info w-100 mt-4">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Call:</h4>
+                                    <p>+255 738 999 000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section><!-- End Contact Section -->
+    {% endblock contacts %}
+    
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-top text-md-start">
+                <div class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear());</script> Copyright <strong><span>GigGo</span></strong>. All Rights Reserved.
+                </div>
+                <!-- <div class="credits">
+          Designed by <a href="https://github.com/e-ManueI">e-Manuel</a>
+        </div> -->
+            </div>
+            <div class="social-links text-top text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
