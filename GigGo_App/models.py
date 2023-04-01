@@ -4,6 +4,8 @@ from django.urls import reverse
 
 # Create your models here.
 class NewUser(AbstractUser):
+    is_finder = models.BooleanField(default=False)
+    is_poster = models.BooleanField(default=False)
     GENDER = [
         ('1', 'Male'),
         ('2', 'Female'),
@@ -15,7 +17,7 @@ class NewUser(AbstractUser):
     phone_number = models.CharField(max_length=12, null=True)
     nin = models.PositiveBigIntegerField(null=True)
     email = models.EmailField(null=True)
-    weburl = models.URLField(max_length=40, null=True)
+    weburl = models.URLField(max_length=40, null=True, blank=True)
     address = models.CharField(max_length=40, null=True)
     status = models.BooleanField(null=True)
     
