@@ -439,12 +439,11 @@ h6 {
 #hero .search-content-container .search-content {
   color: #eee;
   text-align: center;
-  margin-top: -30px;
+  margin-top: 30px;
 }
 #hero .search-content-container .search-content h1 {
   letter-spacing: 2px;
   color: #eee;
-  font-size: 40px;
 }
 #hero .search-content-container .search-content-content {
   width: 1000px;
@@ -526,7 +525,7 @@ h6 {
   }
 
   #hero h1 {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 36px;
   }
   #hero .search-content-container .search-content {
