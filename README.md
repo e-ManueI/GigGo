@@ -28,7 +28,3 @@ Static files can be found in the `static` folder with the `assets` folder contai
 The project contains one project folder called `GigGo` and one application folder called `GigGo_App`
 1. NameSpace for the Application: `GigGo_App`
 2. Urls from the `GigGo_App` are defined in the project folder `GigGo` as `giggo_urls`
-
-## Contributions
-Contributions are welcome. Please fork the repository and create a pull request for the same.
-Don't forget to put a star '\*' on the repository if you like it.
