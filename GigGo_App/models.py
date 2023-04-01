@@ -44,10 +44,9 @@ class Category(models.Model):
 
 class Job(models.Model):
     LOCATION = [
-        ('masaki', 'Masaki'),
-        ('kinondoni', 'Kinondoni'),
-        ('ubungo', 'Ubungo'),
-        ('temeke', 'Temeke'),
+        ('Dar', 'Dar es Salaam'),
+        ('arusha', 'Arusha'),
+        ('dodoma', 'Dodoma'),
 
     ]
     STATUS = [
