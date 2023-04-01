@@ -20,6 +20,7 @@
                 setTimeout(function () {
                     $('#alert-{{ forloop.counter }}').fadeOut('slow');
                 }, 8000);
+<<<<<<< HEAD
                         </script>
                     {% endfor %}
                 </div>
@@ -38,6 +39,23 @@
                                 <button class="btn btn-light px-5 py-2" type="button">Post a Gig</button>
                             </a>
                         </div>
+=======
+            </script>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="search-content-container position-relative">
+            <div class="search-content">
+                <h1>Explore endless opportunities to work with top-notch folks!</h1>
+            </div>
+
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <div class="d-grid gap-2 d-md-block mt-5">
+                        <a href="{% url 'GigGo_App:finder_index' %}" class="btn btn-success mr-md-5 px-5 py-2" type="button">Find a Gig</a>
+                        <a href=""><button class="btn btn-light px-5 py-2" type="button">Post a Gig</button></a>
+>>>>>>> 2271e63f00423212f572bc79ced4972a5a625df6
                     </div>
                 </div>
             </div>
