@@ -1,5 +1,10 @@
-# Instructions
+# About the Project
+GigGo is a mobile platform connecting Tanzania's informal sector workers to flexible work opportunities, matching skills and promoting job security, while providing social protection and access to formal financial services via 
+* Web(here on gitghub) and 
+* [SMS chatbot technology](https://github.com/e-ManueI/GigGo-ChatBot).
 
+# Instructions
+<hr>
 ## Setup Steps
 1. Clone the repository
 2. Install the dependencies from requirements.txt using `pip install -r requirements.txt`
