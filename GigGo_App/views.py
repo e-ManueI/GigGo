@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView, View, DetailView, CreateView, DeleteView, UpdateView, ListView
 from django.urls import reverse_lazy
@@ -7,6 +7,7 @@ import logging
 from django.contrib import messages
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 
 #################################################################################
 # Login Mixins
@@ -106,7 +107,7 @@ def SearchView(request):
                                                    })
     # words = query.split()
     # results = Job.objects.filter(
-        # reduce(lambda x, y: x | y, [Q(name__icontains=word) for word in words])).order_by('-name')
+    # reduce(lambda x, y: x | y, [Q(name__icontains=word) for word in words])).order_by('-name')
     results = results.filter(category__name__iexact=category)
     # print(category)
     results = results.filter(location__iexact=location)
@@ -124,3 +125,31 @@ def SearchView(request):
         "locations": Job.LOCATION
     }
     return render(request, 'jobs.html', context)
+
+
+class ApplyJobView(View):
+    def post(self, request, id, *args, **kwargs):
+        job = get_object_or_404(Job, id=id)
+        applicant = request.user
+        print(f'The job is {job}: the finder is {applicant}')
+        application, created = JobApplication.objects.get_or_create(job=job, applicant=applicant)
+        print(created)
+        if created:
+            messages.success(request, 'You have successfully applied for this job.')
+            return redirect('GigGo_App:index')
+        else:
+            messages.warning(request, 'Something went wrong! Try again.')
+        return redirect('GigGo_App:index')
+
+
+
+# def apply_for_job(request, slug):
+#     job = get_object_or_404(Job, slug=slug)
+#     if request.method == 'POST':
+#         application = JobApplication(job=job, applicant=request.user)
+#         application.save()
+#         messages.success(request, 'You have successfully applied for the job.')
+#         return redirect('job_detail', slug=slug)
+#     else:
+#         messages.warning(request, 'Unable to apply for the job.')
+#         return redirect('job_detail', slug=slug)

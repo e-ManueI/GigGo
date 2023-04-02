@@ -20,245 +20,226 @@
                 setTimeout(function () {
                     $('#alert-{{ forloop.counter }}').fadeOut('slow');
                 }, 8000);
-<<<<<<< HEAD
                         </script>
                     {% endfor %}
                 </div>
             {% endif %}
             <div class="search-content-container position-relative">
                 <div class="search-content">
-                    <h1>Discover Your Next Adventure!</h1>
+                    <h1>Explore endless opportunities to work with top-notch folks!</h1>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="row">
                         <div class="d-grid gap-2 d-md-block mt-5">
-                            <a href="">
-                                <button class="btn btn-success mr-md-5 px-5 py-2" type="button">Find a Gig</button>
-                            </a>
+                            <a href="{% url 'GigGo_App:finder_index' %}"
+                               class="btn btn-success mr-md-5 px-5 py-2"
+                               type="button">Find a Gig</a>
                             <a href="">
                                 <button class="btn btn-light px-5 py-2" type="button">Post a Gig</button>
                             </a>
                         </div>
-=======
-            </script>
-            {% endfor %}
-        </div>
-        {% endif %}
-        <div class="search-content-container position-relative">
-            <div class="search-content">
-                <h1>Explore endless opportunities to work with top-notch folks!</h1>
-            </div>
-
-
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="row">
-                    <div class="d-grid gap-2 d-md-block mt-5">
-                        <a href="{% url 'GigGo_App:finder_index' %}" class="btn btn-success mr-md-5 px-5 py-2" type="button">Find a Gig</a>
-                        <a href=""><button class="btn btn-light px-5 py-2" type="button">Post a Gig</button></a>
->>>>>>> 2271e63f00423212f572bc79ced4972a5a625df6
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Hero -->
-{% endblock hero %}
-{% block main %}
-    <main id="main">
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="100">
-                        <img src="{% static 'assets/img/clients/hackjunction.png' %}"
-                             class="img-fluid"
-                             alt="">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="200">
-                        <img src="{% static 'assets/img/clients/Logo_tigo.png' %}"
-                             class="img-fluid"
-                             alt="">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="300">
-                        <img src="{% static 'assets/img/clients/solvethesdgs.jpg' %}"
-                             class="img-fluid"
-                             alt="">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="400">
-                        <img src="{% static 'assets/img/clients/Coca-Cola_logo.svg.png' %}"
-                             class="img-fluid"
-                             alt="">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="500">
-                        <img src="{% static 'assets/img/clients/Pepsi-Logo.png' %}"
-                             class="img-fluid"
-                             alt="">
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
-                         data-aos="zoom-in"
-                         data-aos-delay="600">
-                        <img src="{% static 'assets/img/clients/microsoft-logo-4.png' %}"
-                             class="img-fluid"
-                             alt="">
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Clients Section -->
-        <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
-            <div class="container">
-                <div class="row counters">
-                    <div class="col-lg-3 col-6 text-top">
-                        <span data-purecounter-start="0"
-                              data-purecounter-end="5000"
-                              data-purecounter-duration="1"
-                              class="purecounter"></span>
-                        <p>Freelancers</p>
-                    </div>
-                    <div class="col-lg-3 col-6 text-top">
-                        <span data-purecounter-start="0"
-                              data-purecounter-end="521"
-                              data-purecounter-duration="1"
-                              class="purecounter"></span>
-                        <p>Projects</p>
-                    </div>
-                    <div class="col-lg-3 col-6 text-top">
-                        <span data-purecounter-start="0"
-                              data-purecounter-end="1463"
-                              data-purecounter-duration="1"
-                              class="purecounter"></span>
-                        <p>Hours Of Support</p>
-                    </div>
-                    <div class="col-lg-3 col-6 text-top">
-                        <span data-purecounter-start="0"
-                              data-purecounter-end="2500"
-                              data-purecounter-duration="1"
-                              class="purecounter"></span>
-                        <p>Hard Workers</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Counts Section -->
-        <!-- =======About Section ======= -->
-        <section id="why-us" class="why-us">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
-                        <div class="content">
-                            <h3>Why Choose Fex?</h3>
-                            <p>
-                                Are you in need of top-quality freelance services? Look no further than our freelancer
-                                web portal! We offer a wide range
-                                of services from talented and skilled professionals, all in one convenient
-                                location.
-                                <br>
-                                <br>
-                                So why wait? Start your search for the perfect freelancer today on our web portal!
-                            </p>
-                            <!-- <div class="text-top">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div> -->
+        <!-- End Hero -->
+    {% endblock hero %}
+    {% block main %}
+        <main id="main">
+            <!-- ======= Clients Section ======= -->
+            <section id="clients" class="clients">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="100">
+                            <img src="{% static 'assets/img/clients/hackjunction.png' %}"
+                                 class="img-fluid"
+                                 alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="200">
+                            <img src="{% static 'assets/img/clients/Logo_tigo.png' %}"
+                                 class="img-fluid"
+                                 alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="300">
+                            <img src="{% static 'assets/img/clients/solvethesdgs.jpg' %}"
+                                 class="img-fluid"
+                                 alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="400">
+                            <img src="{% static 'assets/img/clients/Coca-Cola_logo.svg.png' %}"
+                                 class="img-fluid"
+                                 alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="500">
+                            <img src="{% static 'assets/img/clients/Pepsi-Logo.png' %}"
+                                 class="img-fluid"
+                                 alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-top"
+                             data-aos="zoom-in"
+                             data-aos-delay="600">
+                            <img src="{% static 'assets/img/clients/microsoft-logo-4.png' %}"
+                                 class="img-fluid"
+                                 alt="">
                         </div>
                     </div>
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="icon-boxes d-flex flex-column justify-content-top">
+                </div>
+            </section>
+            <!-- End Clients Section -->
+            <!-- ======= Counts Section ======= -->
+            <section id="counts" class="counts">
+                <div class="container">
+                    <div class="row counters">
+                        <div class="col-lg-3 col-6 text-top">
+                            <span data-purecounter-start="0"
+                                  data-purecounter-end="5000"
+                                  data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Freelancers</p>
+                        </div>
+                        <div class="col-lg-3 col-6 text-top">
+                            <span data-purecounter-start="0"
+                                  data-purecounter-end="521"
+                                  data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Projects</p>
+                        </div>
+                        <div class="col-lg-3 col-6 text-top">
+                            <span data-purecounter-start="0"
+                                  data-purecounter-end="1463"
+                                  data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Hours Of Support</p>
+                        </div>
+                        <div class="col-lg-3 col-6 text-top">
+                            <span data-purecounter-start="0"
+                                  data-purecounter-end="2500"
+                                  data-purecounter-duration="1"
+                                  class="purecounter"></span>
+                            <p>Hard Workers</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Counts Section -->
+            <!-- =======About Section ======= -->
+            <section id="why-us" class="why-us">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
+                            <div class="content">
+                                <h3>Why Choose Fex?</h3>
+                                <p>
+                                    Are you in need of top-quality freelance services? Look no further than our freelancer
+                                    web portal! We offer a wide range
+                                    of services from talented and skilled professionals, all in one convenient
+                                    location.
+                                    <br>
+                                    <br>
+                                    So why wait? Start your search for the perfect freelancer today on our web portal!
+                                </p>
+                                <!-- <div class="text-top">
+                                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-8 d-flex align-items-stretch">
+                            <div class="icon-boxes d-flex flex-column justify-content-top">
+                                <div class="row">
+                                    <div class="col-xl-4 d-flex align-items-stretch"
+                                         data-aos="zoom-in"
+                                         data-aos-delay="100">
+                                        <div class="icon-box mt-4 mt-xl-0">
+                                            <i class="bx bx-receipt"></i>
+                                            <h4>Browse portfolios</h4>
+                                            <p style="font-size: 12;">
+                                                Find professionals you can trust by browsing their
+                                                samples of previous work in portfolios
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 d-flex align-items-stretch"
+                                         data-aos="zoom-in"
+                                         data-aos-delay="200">
+                                        <div class="icon-box mt-4 mt-xl-0">
+                                            <i class="bx bx-cube-alt"></i>
+                                            <h4>Quality work</h4>
+                                            <p>FeX has by far the largest pool of quality freelancers to choose from.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 d-flex align-items-stretch"
+                                         data-aos="zoom-in"
+                                         data-aos-delay="300">
+                                        <div class="icon-box mt-4 mt-xl-0">
+                                            <i class="bx bx-images"></i>
+                                            <h4>Communicate</h4>
+                                            <p>Get in touch with professionals to help your business grow</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End .content-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Why Us Section -->
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4" data-aos="fade-right">
+                            <div class="section-title">
+                                <h2>Contact</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6294310367985!2d39.28578761428516!3d-6.814846568549566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e4816b04b%3A0x41097d819dc4a5d9!2sAzikiwe%20St%2C%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1672872846716!5m2!1sen!2stz"
+                                    width="100%"
+                                    style="border:0;
+                                           height:270px"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    frameborder="0"></iframe>
+                            <div class="info mt-4">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Location:</h4>
+                                <p>A108 Azikiwe Street, Dar Es Salaam, Dsm, Tanzania</p>
+                            </div>
                             <div class="row">
-                                <div class="col-xl-4 d-flex align-items-stretch"
-                                     data-aos="zoom-in"
-                                     data-aos-delay="100">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-receipt"></i>
-                                        <h4>Browse portfolios</h4>
-                                        <p style="font-size: 12;">
-                                            Find professionals you can trust by browsing their
-                                            samples of previous work in portfolios
-                                        </p>
+                                <div class="col-lg-6 mt-4">
+                                    <div class="info">
+                                        <i class="bi bi-envelope"></i>
+                                        <h4>Email:</h4>
+                                        <p>info@giggo.com</p>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 d-flex align-items-stretch"
-                                     data-aos="zoom-in"
-                                     data-aos-delay="200">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-cube-alt"></i>
-                                        <h4>Quality work</h4>
-                                        <p>FeX has by far the largest pool of quality freelancers to choose from.</p>
+                                <div class="col-lg-6">
+                                    <div class="info w-100 mt-4">
+                                        <i class="bi bi-phone"></i>
+                                        <h4>Call:</h4>
+                                        <p>+255 738 999 000</p>
                                     </div>
-                                </div>
-                                <div class="col-xl-4 d-flex align-items-stretch"
-                                     data-aos="zoom-in"
-                                     data-aos-delay="300">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-images"></i>
-                                        <h4>Communicate</h4>
-                                        <p>Get in touch with professionals to help your business grow</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End .content-->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Why Us Section -->
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <div class="section-title">
-                            <h2>Contact</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6294310367985!2d39.28578761428516!3d-6.814846568549566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b0e4816b04b%3A0x41097d819dc4a5d9!2sAzikiwe%20St%2C%20Dar%20es%20Salaam!5e0!3m2!1sen!2stz!4v1672872846716!5m2!1sen!2stz"
-                                width="100%"
-                                style="border:0;
-                                       height:270px"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                frameborder="0"></iframe>
-                        <div class="info mt-4">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Location:</h4>
-                            <p>A108 Azikiwe Street, Dar Es Salaam, Dsm, Tanzania</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 mt-4">
-                                <div class="info">
-                                    <i class="bi bi-envelope"></i>
-                                    <h4>Email:</h4>
-                                    <p>info@giggo.com</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="info w-100 mt-4">
-                                    <i class="bi bi-phone"></i>
-                                    <h4>Call:</h4>
-                                    <p>+255 738 999 000</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- End Contact Section -->
-    </main>
-    <!-- End #main -->
-{% endblock main %}
-{% block contacts %}
-{% endblock contacts %}
+            </section>
+            <!-- End Contact Section -->
+        </main>
+        <!-- End #main -->
+    {% endblock main %}
+    {% block contacts %}
+    {% endblock contacts %}

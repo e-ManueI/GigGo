@@ -82,3 +82,17 @@ class Job(models.Model):
         verbose_name = "Job"
         verbose_name_plural = "Jobs"
         index_together = (('id', 'slug'),)
+
+
+class JobApplication(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    applicant = models.ForeignKey(NewUser, on_delete=models.CASCADE)
+    application_date = models.DateTimeField(auto_now_add=True)
+    # message = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ['-application_date']
+
+    def __str__(self):
+        return self.job.name
+    

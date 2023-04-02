@@ -11,10 +11,14 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name="signin.html", next_page=reverse_lazy('GigGo_App:dashboard')), name='login'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('GigGo_App:login')), name='logout'),
     path('finder/', FinderHomeView.as_view(), name='finder_index'),
+    path('finder/apply/<int:id>/', ApplyJobView.as_view(), name='finder_apply'),
+
     path('search/', SearchView, name='search'),
+
     path('poster/createjob/', CreateJobView.as_view(), name='poster_createjob'),
     path('poster/joblist/', JobListView.as_view(), name='poster_joblist'),
     path('poster/updatejob/<int:pk>/', UpdateJobView.as_view(), name='poster_updatejob'),
     path('poster/deletejob/<int:pk>/', DeleteJobView.as_view(), name='poster_deletejob'),
+
 
 ]
