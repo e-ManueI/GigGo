@@ -42,7 +42,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="{% url 'GigGo_App:index' %}" class="logo d-flex align-items-center">
                 <img src="{% static 'assets/img/favicon/favicon-32x32.png' %}" alt="">
-                <span class="d-none d-lg-block">GigGo</span>
+                <span class="d-none d-lg-block">GigGo - Finder</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -109,12 +109,12 @@
                 </a>
             </li><!-- End Dashboard Nav -->
 
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
                 <a class="nav-link collapsed" href="{% url 'GigGo_App:poster_createjob' %}">
                     <i class="bi bi-plus-square"></i>
                     <span>Post Gig</span>
                 </a>
-            </li>
+            </li> {% endcomment %}
             <!-- End Create Gigs Nav -->
 
             <li class="nav-item">

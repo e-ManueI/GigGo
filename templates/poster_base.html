@@ -28,7 +28,7 @@
     <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
     <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
     <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
-
+    {% block stylesheet %}{% endblock stylesheet %}
     <!-- Template Main CSS File -->
     <link href="{% static 'assets/css/userprofile_style.css' %}" rel="stylesheet">
 
@@ -42,7 +42,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="{% url 'GigGo_App:index' %}" class="logo d-flex align-items-center">
                 <img src="{% static 'assets/img/favicon/favicon-32x32.png' %}" alt="">
-                <span class="d-none d-lg-block">GigGo</span>
+                <span class="d-none d-lg-block">GigGo - Hire</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->

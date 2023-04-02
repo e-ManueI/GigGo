@@ -1,24 +1,66 @@
-{% extends 'poster_base.html' %}
 
+{% extends 'poster_base.html' %}
 {% load static %}
 
-{% block dash_title %}
-    <div class="pagetitle">
-        <h1>Post a Gig</h1>
-    </div><!-- End Page Title -->
-{% endblock dash_title %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'assets/css/post-Form.css' %}">
+{% endblock stylesheet %}
 
+{% block dash_title %}{% endblock dash_title %}
 {% block content %}
-<section class="inner-page"> 
-    <div class="card">
-            <div class="card-body py-3">
-                {{form.as_p}}
-            </div>
-             <div class="form-row my-4 justify-content-center">
-                <button type="submit" class="btn btn-success btn-lg"
-                    style="background-color: #009970; border-color: #009970; animation: pulse 1s infinite;">Post</button>
-            </div>
+
+    <section class="inner-page">
+        <div class="container">
+            <!-- Start: Registration Form with Photo -->
+            <section class="login-clean">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="illustration">
+                        <h3>Post A Job</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.category }}
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                              {{ form.location }}
+                            
+                                {% comment %} <input class="form-control" name="location" placeholder="location"> {% endcomment %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                {{ form.price }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.description }}
+                    </div>
+                 
+            
+                    <!-- <input class="check" type="checkbox"><small class="form-text">Remember me</small> -->
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-primary d-block w-50 center">
+                    </div>
+                    
+                </form>
+            </section>
         </div>
-    </div>
-</section>
+    </section>
+
+<!-- End #main -->
 {% endblock content %}
+

@@ -18,3 +18,11 @@ class CreateJobForm(forms.ModelForm):
     class Meta:
         model = Job
         fields = "__all__"
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+            'location': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Location'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Enter job description', 'placeholder': 'Enter Job Category'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Price'}),
+            'status': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Status'}),
+        }
