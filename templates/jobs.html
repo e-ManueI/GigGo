@@ -46,9 +46,11 @@
                                     <h6 class="text-muted card-subtitle mb-2"
                                         style="font-size: 18px;color: #0ebc0e;">Free Consultation</h6>
                                     <div style="height: auto;background: transparent;text-align: center;">
-                                        <button id="" class="btn btn-success rounded-2"
-                                            type="button"
-                                            style="text-align: center;width: 90%;padding-top: 3px;padding-bottom: 3px;margin-top: 16px;margin-bottom: 4px;border-radius: 0px;margin-right: 39px;"><span>Apply</span></button>
+                                        <form method="POST" action="{% url 'GigGo_App:finder_apply' job.id %}">
+                                            {% csrf_token %}
+                                        
+                                            <input type="submit" value="Apply" class="btn btn-success rounded-2" style="text-align: center;width: 90%;padding-top: 3px;padding-bottom: 3px;margin-top: 16px;margin-bottom: 4px;border-radius: 0px;margin-right: 39px;">
+                                          </form>                                  
                                         <a class="btn btn-secondary rounded-2" role="button"
                                             style="text-align: center;width: 90%;padding-top: 3px;padding-bottom: 3px;margin-top: 16px;margin-bottom: 4px;border-radius: 0px;margin-right: 39px;"
                                             href="{{ job.get_absolute_url }}">Details</a>
