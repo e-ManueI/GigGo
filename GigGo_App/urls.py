@@ -7,10 +7,13 @@ app_name = 'GigGo_App'
 urlpatterns = [
     path('', HomePageView.as_view(), name='index'),
     path('register/', SignUpView.as_view(), name='signup'),
-    path('poster/dashboard/', UserDashboardView.as_view(), name='dashboard'),
+    path('poster/dashboard/', UserDashboardView.as_view(), name='poster_dashboard'),
     path('login/', LoginView.as_view(template_name="signin.html", next_page=reverse_lazy('GigGo_App:dashboard')), name='login'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('GigGo_App:login')), name='logout'),
+
     path('finder/', FinderHomeView.as_view(), name='finder_index'),
+    path('finder/dashboard/', FinderDashboardView.as_view(), name='finder_dash'),
+    path('finder/applications/', ApplicationListView.as_view(), name='finder_applications'),
     path('finder/apply/<int:id>/', ApplyJobView.as_view(), name='finder_apply'),
 
     path('search/', SearchView, name='search'),

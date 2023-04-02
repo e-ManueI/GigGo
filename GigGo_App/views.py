@@ -53,23 +53,42 @@ class SignUpView(CreateView):
 class UserDashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'poster_dash.html'
 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        jobs = Job.objects.filter(user=self.request.user)
+        context['jobs'] = jobs
+        context['num_jobs'] = jobs.count()
+        return context
+
     def dispatch(self, request, *args, **kwargs):
         try:
             return super().dispatch(request, *args, **kwargs)
         except PermissionDenied:
-            return render(request, 'error_pages/401.html', status=404)
+            return render(request, 'error_pages/401.html', status=401)
         except Exception as e:
             if str(e) == "You do not have permission to view this page":
                 return render(request, 'error_pages/403.html', status=403)
             raise e
+        
 # add poster required mixing to the below
 class CreateJobView(CreateView):
     template_name = "poster_createjob.html"
     form_class = CreateJobForm
         
-class JobListView(ListView):
+class JobListView(LoginRequiredMixin, ListView):
     template_name = "poster_joblist.html"
     model = Job
+
+    def get_queryset(self):
+        jobs = Job.objects.filter(user=self.request.user)
+        job_applications = JobApplication.objects.filter(job__in=jobs)
+        for job in jobs:
+            if job_applications.filter(job=job).exists():
+                job.status = 'inprogress'
+        return jobs
+
+
 
 class UpdateJobView(UpdateView):
     template_name = "poster_updatejob.html"
@@ -127,6 +146,27 @@ def SearchView(request):
     return render(request, 'jobs.html', context)
 
 
+class FinderDashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'finder_dash.html'
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        applications = Job.objects.filter(user=self.request.user)
+        context['applications'] = applications
+        context['num_applications'] = applications.count()
+        return context
+
+   
+class ApplicationListView(LoginRequiredMixin, ListView):
+    template_name = "finder_applications.html"
+    model = JobApplication
+
+    def get_queryset(self):
+        job_applications = JobApplication.objects.filter(applicant=self.request.user)
+        return job_applications
+    
+
 class ApplyJobView(View):
     def post(self, request, id, *args, **kwargs):
         job = get_object_or_404(Job, id=id)
@@ -142,14 +182,10 @@ class ApplyJobView(View):
         return redirect('GigGo_App:index')
 
 
+class FinderApplicationsView(LoginRequiredMixin, ListView):
+    model = JobApplication
+    template_name = 'finder_applications.html'
+    context_object_name = 'applications'
 
-# def apply_for_job(request, slug):
-#     job = get_object_or_404(Job, slug=slug)
-#     if request.method == 'POST':
-#         application = JobApplication(job=job, applicant=request.user)
-#         application.save()
-#         messages.success(request, 'You have successfully applied for the job.')
-#         return redirect('job_detail', slug=slug)
-#     else:
-#         messages.warning(request, 'Unable to apply for the job.')
-#         return redirect('job_detail', slug=slug)
+    def get_queryset(self):
+        return JobApplication.objects.filter(applicant=self.request.user.id)
